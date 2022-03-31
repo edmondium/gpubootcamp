@@ -1,0 +1,31 @@
+#! /bin/bash
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=4
+#SBATCH --gres=gpu:A100-SXM4:1
+#SBATCH --time=04:00:00
+#SBATCH --error=job.%J.err
+#SBATCH --output=job.%J.out
+#SBATCH --partition=bootcp
+#SBATCH --reservation=root_20
+echo "Starting at `date`"
+echo "Running on hosts: $SLURM_NODELIST"
+echo "Running on $SLURM_NNODES nodes."
+echo "Running $SLURM_NTASKS tasks."
+echo "Job id is $SLURM_JOBID"
+echo "Job submission directory is : $SLURM_SUBMIT_DIR"
+#cd $SLURM_SUBMIT_DIR
+###################### Command to run your MPI program######################
+cp /raid/gpucbh/cfd-ai.sqsh ~
+rm port_fowarding_command
+enroot create -f cfd-ai.sqsh
+SERVER=$(hostname)
+oldstr="-mn"
+newstr="-100g"
+result=$(echo $SERVER | sed "s/$oldstr/$newstr/")
+echo "New str $result"
+
+echo "Please enable port forwading by running the follwoing command on new terminal"
+echo "ssh -L localhost:$1:$result:$1 $USER@login-siddhi.pune.cdac.in"
+echo "ssh -L localhost:$1:$result:$1 $USER@login-siddhi.pune.cdac.in" > port_fowarding_command
+enroot start cfd-ai jupyter-lab --no-browser --allow-root --ip=0.0.0.0 --port=$1 --NotebookApp.token="" --notebook-dir=/workspace/python/jupyter_notebook
+##########################################################################

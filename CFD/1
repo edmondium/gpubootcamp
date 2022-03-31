@@ -1,0 +1,2 @@
+cp /raid
+enroot create nways.sqsh 
