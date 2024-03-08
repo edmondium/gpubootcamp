@@ -1,14 +1,11 @@
-**HPC**: This directory contains labs related to HPC(Simulation) and parallel computing. It comprises below labs:
-- Introduction to OpenACC
-- Introdcution to Nsight Profiler tool
-- Nways to GPU programming
+We archived the old training contents and we no longer maintain them. Those are available at `archived` folder. To access the new HPC contents, please check below repositories:
 
-Each lab contains docker and singularity definition files. Follow the readme files inside each on how to build the container and run the labs inside it. 
-
-
-<!--# Slides:
-The slides associated with these training materials can be downloaded from [Google Slides](https://drive.google.com/drive/folders/1nYd_oHbmA4cxdDPesg5CwQkrvr0E3ruf?usp=sharing)
--->
+| Lab      | Description |
+| ----------- | ----------- |
+| [N-Ways](https://github.com/openhackathons-org/nways_accelerated_programming)      | This Bootcamp will cover multiple GPU programming models and choose the one that best fits your needs. The material supports different programming langauges including C ( CUDA C, OpenACC C, OpenMP C, C++ stdpar ),  Fortran ( CUDA Fortran, OpenACC Fortran, OpenMP Fortran, ISO DO CONCURRENT ) Python ( Numba, CuPy )       |
+| [Multi GPU Programming Model](https://github.com/openhackathons-org/nways_multi_gpu)   | This bootcamp will cover scaling applications to multiple GPUs across multiple nodes. Moreover, understanding of the underlying technologies and communication topology will help us utilize high-performance NVIDIA libraries to extract more performance out of the system     |
+| [HPC Profiler](https://github.com/openhackathons-org/HPC_Profiler)  | This repository contains learning materials and exercises for NVIDIA Nsight Tools. Goal is to learn how to profile your application with NVIDIA Nsight Systems,Compute and NVTX API calls to find performance limiters and bottlenecks and apply incremental parallelization strategies |
+| [C++ Standard Parallelism](https://github.com/openhackathons-org/cpp_hpc_tutorial)  | This repository contains learning materials and exercises for C++ Standard Parallelism. The content covers step by steps of accelerating a portable HPC application with CPUs and GPUs using the parallelism and concurrency features of the C++17 and C++20 standards. Goal is to learn about C++ concurrency features like threads, atomics, barriers, and parallel algorithms. This forked content has been tested. The owners of the material are Gonzalo Brito and Jonas Latt|
 
 ## Questions?
 Please join [OpenACC Slack Channel](https://openacclang.slack.com/messages/openaccusergroup) for questions.
